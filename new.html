@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Gallery</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="new.css">
+</head>
+<body>
+
+    <!-- Sidebar (visible on large screens) -->
+    <div class="sidebar d-none d-md-block">
+        <h4>Filters</h4>
+        <ul class="list-unstyled">
+            <li><a href="#" class="text-decoration-none in active">All Videos</a></li>
+            <li><a href="#" class="text-decoration-none in">Short Videos</a></li>
+            <li><a href="#" class="text-decoration-none in">Long Videos</a></li>
+            <li><a href="#" class="text-decoration-none in">Live Videos</a></li>
+            <li><a href="#" class="text-decoration-none in">Popular Videos</a></li>
+        </ul>
+        <hr>
+        <h4>Categories</h4>
+        <ul class="list-unstyled">
+            <li><a href="#" class="text-decoration-none in">Music</a></li>
+            <li><a href="#" class="text-decoration-none in">Games</a></li>
+            <li><a href="#" class="text-decoration-none in">Education</a></li>
+            <li><a href="#" class="text-decoration-none in">Technology</a></li>
+            <li><a href="#" class="text-decoration-none in">Fitness</a></li>
+        </ul>
+    </div>
+
+    <!-- Mobile Toggle Button (visible on small screens) -->
+    <div class="mobile-toggle d-md-none">
+        <button class="btn btn-dark w-100" type="button" data-bs-toggle="collapse" data-bs-target="#mobileSidebar" aria-expanded="false" aria-controls="mobileSidebar">
+            ☰ Menu
+        </button>
+        <!-- Collapsible Sidebar for Mobile -->
+        <div class="collapse mt-2" id="mobileSidebar">
+            <h4 class="cat">Filters</h4>
+            <ul class="list-unstyled">
+                <li><a href="#" class="text-decoration-none in active">All Videos</a></li>
+                <li><a href="#" class="text-decoration-none in">Short Videos</a></li>
+                <li><a href="#" class="text-decoration-none in">Long Videos</a></li>
+                <li><a href="#" class="text-decoration-none in">Live Videos</a></li>
+                <li><a href="#" class="text-decoration-none in">Popular Videos</a></li>
+            </ul>
+            <hr>
+            <h4 class="cat">Categories</h4>
+            <ul class="list-unstyled">
+                <li><a href="#" class="text-decoration-none in">Music</a></li>
+                <li><a href="#" class="text-decoration-none in">Games</a></li>
+                <li><a href="#" class="text-decoration-none in">Education</a></li>
+                <li><a href="#" class="text-decoration-none in">Technology</a></li>
+                <li><a href="#" class="text-decoration-none in">Fitness</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <img src="logo.jpg" alt="">
+
+        <!-- Search Bar -->
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search videos..." aria-label="Search videos">
+            <button class="btn btn-outline-secondary" type="button">Search</button>
+        </div>
+
+        <!-- Video Grid -->
+        <div class="row video-grid">
+            <!-- Video Item 1 -->
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <video width="470px" height="340px" controls class="pen"> 
+                        <source src="4fe24d25f95c45d0ad2015df417b7dc3.mp4" type="video/mp4">
+                      </video>
+                    <div class="card-body">
+                        <h5 class="card-title">Ayo Maff & Fireboy DML - Dealer (Official Video)</h5>
+                        <p class="card-text text-muted">4.2M views • 5 months ago</p>
+                        <p class="card-text"><span class="badge bg-secondary">#AyoMaff</span> <span class="badge bg-secondary">#FireboyDML</span> <span class="badge bg-secondary">#Dealer</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Item 2 -->
+            <div class="col-md-6 mb4">
+                <div class="card">
+                    <video width="470px" height="340px" controls class="pen ant">
+                        <source src="Naira-Marley-Mp3bullet-Tesumole-OFFICIAL-VIDEO.mp4" type="video/mp4">
+                      </video>
+                    <div class="card-body">
+                        <h5 class="card-title">Naira marley - tesumole? (Official Video)</h5>
+                        <p class="card-text text-muted">1.4M views • 1 month ago</p>
+                        <p class="card-text"><span class="badge bg-secondary">#nairamarley</span> <span class="badge bg-secondary">#MAFFIAN</span> <span class="badge bg-secondary">#Empire</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Item 3 -->
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <video width="470px" height="340px" controls class="pen ant">
+                        <source src="Naira-Marley-Mp3bullet-Tesumole-OFFICIAL-VIDEO.mp4" type="video/mp4">
+                      </video>
+                    <div class="card-body">
+                        <h5 class="card-title">Ayo Maff - Life of a Maffian (Documentary)</h5>
+                        <p class="card-text text-muted">2.7M views • 3 months ago</p>
+                        <p class="card-text"><span class="badge bg-secondary">#AyoMaff</span> <span class="badge bg-secondary">#Documentary</span> <span class="badge bg-secondary">#MaffianLife</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

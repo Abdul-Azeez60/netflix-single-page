@@ -1,0 +1,70 @@
+body{
+   background-color: black;
+}
+.MEMBER{
+    text-shadow: -1px 0 #000000, 0 1px black, 1px 0 black, 0 -1px black;
+    text-align: center; 
+    color: coral;
+}
+h3{
+    text-align: center;
+    color: white;
+}
+.in{
+    width: 700px;
+    margin: 30px;
+    height: 40px;
+}
+.yes{
+    margin: auto;
+    text-align: center;
+}
+
+.try{
+    width: 140px;
+    background-color: coral;
+    margin-left: 300px;
+    border: 0;
+    padding: 10px;
+}
+.main{
+    background-color: whitesmoke;
+    width: 800px;
+    margin: 80px;
+    margin-left: 280px;
+}
+.area{
+    width: 700px;
+    margin: 30px;
+}
+.name{
+    position: relative;
+    top: 30px;
+    left: 40px;
+}
+@media only screen and (max-width: 700px) {
+    /* For mobile phones: */
+    [class*="main"] {
+        margin-left: 0;
+        width: 300px;
+        background-color: black;
+       }
+       [class*="area"] {
+        width: 270px;
+       }
+       [class*="in"] {
+        width: 300px;
+       }
+       [class*="fieldset"] {
+        width: 200px;
+       }
+       [class*="try"] {
+        margin-left: 0;
+       }
+       [class*="legend"] {
+        color: white;
+       }
+       [class*="name"] {
+          color: white;
+       }
+}

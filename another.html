@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CIVALUX - Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #141E30, #243B55);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      width: 350px;
+      text-align: center;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      font-size: 28px;
+      color: #141E30;
+      margin-bottom: 20px;
+      font-family: Georgia, serif;
+      letter-spacing: 3px;
+    }
+
+    input {
+      width: 90%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      width: 95%;
+      padding: 12px;
+      margin: 12px 0;
+      background: #141E30;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #243B55;
+    }
+
+    .link {
+      margin-top: 10px;
+      font-size: 14px;
+      cursor: pointer;
+      color: #141E30;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>CIVALUX</h1>
+
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+
+    <button id="login">Login</button>
+    <button id="signup">Sign Up</button>
+    <div id="forgot-password" class="link">Forgot Password?</div>
+  </div>
+
+  <!-- Firebase -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail } 
+      from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    // ✅ Your Firebase Config
+    const firebaseConfig = {
+      apiKey: "AIzaSyDKXrL0n88FyG7fYALXp5r7IaBsx7IqnCk",
+      authDomain: "my-login-294ed.firebaseapp.com",
+      projectId: "my-login-294ed",
+      storageBucket: "my-login-294ed.appspot.com",
+      messagingSenderId: "246189532221",
+      appId: "1:246189532221:web:2912bb22bfde274544f654",
+      measurementId: "G-QJ2L3CBG5N"
+    };
+
+    // ✅ Init Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Login
+    document.getElementById("login").addEventListener("click", () => {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          alert("Login successful! ✅");
+          window.location.href = "index.html"; // redirect to your homepage
+        })
+        .catch((error) => {
+          alert("Login error: " + error.message);
+        });
+    });
+
+    // Signup
+    document.getElementById("signup").addEventListener("click", () => {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          alert("Signup successful! 🎉 Now you can log in.");
+        })
+        .catch((error) => {
+          alert("Signup error: " + error.message);
+        });
+    });
+
+    // Forgot Password
+    document.getElementById("forgot-password").addEventListener("click", () => {
+      const email = document.getElementById("email").value;
+
+      if (!email) {
+        alert("Enter your email first to reset password.");
+        return;
+      }
+
+      sendPasswordResetEmail(auth, email)
+        .then(() => {
+          alert("Password reset email sent! Check your inbox (and Spam).");
+        })
+        .catch((error) => {
+          alert("Error: " + error.message);
+        });
+    });
+  </script>
+</body>
+</html>

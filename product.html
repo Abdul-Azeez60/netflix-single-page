@@ -1,0 +1,414 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details | CIVALUX</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; background:#f9f9f9; }
+    header { background:black; color:white; padding:15px 30px; }
+    header h1 { margin:0; color:#e50914; }
+    .container { max-width:1000px; margin:auto; padding:30px; display:flex; gap:30px; }
+    .images { flex:1; }
+    .images img { width:100%; border-radius:10px; margin-bottom:15px; }
+    .details { flex:1; }
+    .details h2 { margin-top:0; }
+    .details p { color:#555; }
+    .price { font-size:20px; font-weight:bold; margin:15px 0; }
+    button {
+      background:#e50914; border:none; padding:12px 20px; border-radius:6px;
+      color:white; font-size:16px; cursor:pointer; margin-right:10px;
+    }
+    button:hover { background:#b20710; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CIVALUX</h1>
+  </header>
+
+  <div class="container">
+    <div class="images">
+      <img id="main-img" src="" alt="Product">
+      <img id="img2" src="" alt="Product back">
+      <img id="img3" src="" alt="Product closeup">
+    </div>
+    <div class="details">
+      <h2 id="product-name"></h2>
+      <p id="product-desc">This is a premium product from CIVALUX designed for comfort and style.</p>
+      <div class="price" id="product-price"></div>
+      <button onclick="addToCart()">Add to Cart</button>
+      <button onclick="goBack()">Back to Shop</button>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    const products = {
+      1: {
+        name: "Classic T-Shirt",
+        price: 29.99,
+        images: [
+          "https://images.unsplash.com/photo-1512436991641-6745cdb1723f",
+          "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+          "https://images.unsplash.com/photo-1602810318383-e67757b2b2b4"
+        ]
+      },
+      2: {
+        name: "Luxury Shirt",
+        price: 59.99,
+        images: [
+          "images/civalux 1",
+          "images/civalux 1.png",
+          "images/civalux 1.png"
+        ]
+      },
+      3: {
+        name: "Premium Hoodie",
+        price: 89.99,
+        images: [
+          "images/civalux 2.png",
+          "images/civalux 2.png",
+          "images/civalux 2.png"
+        ]
+      },
+      4: {
+        name: "Luxury Cap",
+        price: 120.00,
+        images: [
+          "images/civalux 3.png",
+          "images/civalux 3.png",
+          "images/civalux 3.png"
+        ]
+      }
+    };
+
+    const product = products[id];
+    if (product) {
+      document.getElementById("main-img").src = product.images[0];
+      document.getElementById("img2").src = product.images[1];
+      document.getElementById("img3").src = product.images[2];
+      document.getElementById("product-name").innerText = product.name;
+      document.getElementById("product-price").innerText = "$" + product.price.toFixed(2);
+    }
+
+    function addToCart() {
+      alert(product.name + " added to cart!");
+    }
+    function goBack() {
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html> -->
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CIVALUX Product</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f8f8f8; }
+    header {
+      background: black; color: white; padding: 15px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    header h1 { margin: 0; font-size: 24px; }
+    header nav a { color: white; margin: 0 10px; text-decoration: none; }
+    header nav button {
+      margin-left: 15px; padding: 6px 12px; background: #e91e63;
+      color: white; border: none; border-radius: 4px; cursor: pointer;
+    }
+    .product-container {
+      display: flex; flex-wrap: wrap;
+      padding: 40px; gap: 30px; justify-content: center;
+    }
+    .product-container img {
+      width: 400px; height: 400px; object-fit: cover;
+      border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .details {
+      max-width: 500px;
+    }
+    .details h2 { font-size: 32px; margin-bottom: 15px; }
+    .details p { font-size: 18px; margin-bottom: 10px; color: #555; }
+    .details .price { font-size: 24px; font-weight: bold; margin: 20px 0; }
+    .details button {
+      margin: 10px 5px; padding: 12px 20px; font-size: 16px;
+      border: none; border-radius: 6px; cursor: pointer; font-weight: bold;
+    }
+    .add-btn { background: #222; color: white; }
+    .buy-btn { background: #e91e63; color: white; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CIVALUX</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#cart">Cart (<span id="cart-count">0</span>)</a>
+      <button onclick="logout()">Logout</button>
+    </nav>
+  </header>
+
+  <section class="product-container">
+    <img id="product-image" src="" alt="Product">
+    <div class="details">
+      <h2 id="product-name">Product Name</h2>
+      <p id="product-desc">Product description will appear here.</p>
+      <p class="price">$<span id="product-price">0</span></p>
+      <button class="add-btn" onclick="addToCart()">Add to Cart</button>
+      <button class="buy-btn" onclick="buyNow()">Buy Now</button>
+    </div>
+  </section> -->
+
+  <!-- Firebase -->
+  <!-- <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+
+  <script>
+    // ✅ Same Firebase Config
+    const firebaseConfig = {
+      apiKey: "AIzaSyDKXrL0n88FyG7fYALXp5r7IaBsx7IqnCk",
+      authDomain: "my-login-294ed.firebaseapp.com",
+      projectId: "my-login-294ed",
+      storageBucket: "my-login-294ed.appspot.com",
+      messagingSenderId: "246189532221",
+      appId: "1:246189532221:web:2912bb22bfde274544f654",
+      measurementId: "G-QJ2L3CBG5N"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    let currentUser = null;
+    let currentProduct = null;
+
+    // Simulated products (same as index.html)
+    const productsData = [];
+    for (let i=1; i<=20; i++) {
+      productsData.push({
+        id: i,
+        name: "CIVALUX Item " + i,
+        price: Math.floor(Math.random()*80+20),
+        image: "https://via.placeholder.com/400x400?text=CIVALUX+"+i,
+        desc: "This is a premium streetwear item from CIVALUX, designed for comfort and elegance."
+      });
+    }
+
+    // Get ID from URL
+    const params = new URLSearchParams(window.location.search);
+    const id = parseInt(params.get("id"));
+    currentProduct = productsData.find(p => p.id === id);
+
+    if (currentProduct) {
+      document.getElementById("product-image").src = currentProduct.image;
+      document.getElementById("product-name").innerText = currentProduct.name;
+      document.getElementById("product-price").innerText = currentProduct.price;
+      document.getElementById("product-desc").innerText = currentProduct.desc;
+    }
+
+    async function addToCart() {
+      if (!currentProduct) return;
+      let cart = [];
+      if (currentUser) {
+        const doc = await db.collection("carts").doc(currentUser.uid).get();
+        if (doc.exists) cart = doc.data().items || [];
+        cart.push(currentProduct);
+        await db.collection("carts").doc(currentUser.uid).set({ items: cart });
+        alert("Added to Cart!");
+      } else {
+        alert("Login to add items to cart.");
+      }
+    }
+
+    function buyNow() {
+      alert("Proceeding to payment for " + currentProduct.name);
+      // Later: redirect to checkout.html
+    }
+
+    function logout() {
+      auth.signOut().then(() => {
+        alert("Logged out");
+        window.location.href = "login.html";
+      });
+    }
+
+    auth.onAuthStateChanged(async user => {
+      if (user) {
+        currentUser = user;
+        const doc = await db.collection("carts").doc(user.uid).get();
+        if (doc.exists) {
+          document.getElementById("cart-count").innerText = doc.data().items.length;
+        }
+      } else {
+        window.location.href = "login.html";
+      }
+    });
+  </script>
+</body>
+</html> -->
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CIVALUX Product Details</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f8f8f8; }
+    header {
+      background: black; color: white; padding: 15px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    header h1 { margin: 0; font-size: 24px; }
+    header nav a { color: white; margin: 0 10px; text-decoration: none; }
+    header nav button {
+      margin-left: 15px; padding: 6px 12px; background: #e91e63;
+      color: white; border: none; border-radius: 4px; cursor: pointer;
+    }
+    .product-container {
+      display: flex; flex-wrap: wrap;
+      padding: 40px; gap: 30px; justify-content: center; align-items: center;
+    }
+    .product-container img {
+      width: 400px; height: 400px; object-fit: cover;
+      border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .details {
+      max-width: 400px;
+    }
+    .details h2 { font-size: 28px; margin-bottom: 15px; }
+    .details p { font-size: 16px; margin-bottom: 10px; color: #555; }
+    .details .price { font-size: 22px; font-weight: bold; margin: 20px 0; }
+    .details button {
+      margin: 10px 5px; padding: 12px 20px; font-size: 16px;
+      border: none; border-radius: 6px; cursor: pointer; font-weight: bold;
+    }
+    .add-btn { background: #222; color: white; }
+    .buy-btn { background: #e91e63; color: white; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CIVALUX</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#cart">Cart (<span id="cart-count">0</span>)</a>
+      <button onclick="logout()">Logout</button>
+    </nav>
+  </header>
+
+  <section class="product-container">
+    <img id="product-image" src="" alt="Product">
+    <div class="details">
+      <h2 id="product-name">Product Name</h2>
+      <p id="product-desc">Product description will appear here.</p>
+      <p class="price">$<span id="product-price">0</span></p>
+      <button class="add-btn" onclick="addToCart()">Add to Cart</button>
+      <button class="buy-btn" onclick="buyNow()">Buy Now</button>
+    </div>
+  </section>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+
+  <script>
+    // ✅ Firebase Config
+    const firebaseConfig = {
+      apiKey: "AIzaSyDKXrL0n88FyG7fYALXp5r7IaBsx7IqnCk",
+      authDomain: "my-login-294ed.firebaseapp.com",
+      projectId: "my-login-294ed",
+      storageBucket: "my-login-294ed.appspot.com",
+      messagingSenderId: "246189532221",
+      appId: "1:246189532221:web:2912bb22bfde274544f654",
+      measurementId: "G-QJ2L3CBG5N"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    let currentUser = null;
+    let currentProduct = null;
+
+    // ✅ Same product data
+    const productsData = [];
+    for (let i=1; i<=20; i++) {
+      productsData.push({
+        id: i,
+        name: "CIVALUX Item " + i,
+        price: Math.floor(Math.random()*80+20),
+        image: "https://via.placeholder.com/400x400?text=CIVALUX+"+i,
+        desc: "This is a premium streetwear item from CIVALUX, designed for comfort and elegance."
+      });
+    }
+
+    // ✅ Get ID from URL
+    const params = new URLSearchParams(window.location.search);
+    const id = parseInt(params.get("id"));
+    currentProduct = productsData.find(p => p.id === id);
+
+    if (currentProduct) {
+      document.getElementById("product-image").src = currentProduct.image;
+      document.getElementById("product-name").innerText = currentProduct.name;
+      document.getElementById("product-price").innerText = currentProduct.price;
+      document.getElementById("product-desc").innerText = currentProduct.desc;
+    }
+
+    async function addToCart() {
+      if (!currentProduct) return;
+      if (!currentUser) return alert("Login to add items to cart.");
+
+      let cart = [];
+      const doc = await db.collection("carts").doc(currentUser.uid).get();
+      if (doc.exists) cart = doc.data().items || [];
+      cart.push(currentProduct);
+      await db.collection("carts").doc(currentUser.uid).set({ items: cart });
+      alert("Added to Cart!");
+    }
+
+    function buyNow() {
+      alert("Proceeding to payment for " + currentProduct.name);
+      // Later: redirect to checkout.html
+    }
+
+    function logout() {
+      auth.signOut().then(() => {
+        alert("Logged out");
+        window.location.href = "login.html";
+      });
+    }
+
+    auth.onAuthStateChanged(async user => {
+      if (user) {
+        currentUser = user;
+        const doc = await db.collection("carts").doc(user.uid).get();
+        if (doc.exists) {
+          document.getElementById("cart-count").innerText = doc.data().items.length;
+        }
+      } else {
+        window.location.href = "login.html";
+      }
+    });
+  </script>
+</body>
+</html>
+
+
